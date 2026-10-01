@@ -299,11 +299,15 @@ public class MyLinkedList<E> implements MyList<E> {
 
   @Override 
   //Return true if this list contains the element 
-  //PRE: accepts the object
-  //POST:checks data elements if found, returns true
-  //     else returns false
+  //PRE: List is well formed,e != null;
+  //POST:return True or Flase depend on list.
   public boolean contains(Object e) {
-    System.out.println("You must add the logic for method: contains");
+    Node<E> current = head;
+    while (current != null) {
+      if (e == null ? current.element == null : e.equals(current.element))
+        return true;
+      current = current.next;
+    }
     return false;
   }
 
